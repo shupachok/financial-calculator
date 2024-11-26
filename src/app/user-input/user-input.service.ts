@@ -4,7 +4,7 @@ import {InvestmentResult} from '../investment-results/investment-result.model';
 @Injectable({
   providedIn: 'root'
 })
-export class UserInputServiceService {
+export class UserInputService {
 
   constructor() {}
 

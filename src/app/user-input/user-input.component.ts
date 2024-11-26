@@ -1,6 +1,6 @@
 import {Component, inject} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {UserInputServiceService} from './user-input-service.service';
+import {UserInputService} from './user-input.service';
 
 @Component({
   selector: 'app-user-input',
@@ -19,7 +19,7 @@ export class UserInputComponent {
   enteredExpectedReturn:number=0.00;
   enteredDuration:number=0;
 
-  private userInputService = inject(UserInputServiceService);
+  private userInputService = inject(UserInputService);
 
   onSubmit() {
     this.userInputService.getInvestmentResult(this.enteredInitialInvestment,this.enteredAnnualInvestment,
