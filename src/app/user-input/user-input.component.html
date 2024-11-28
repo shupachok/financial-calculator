@@ -1,4 +1,3 @@
-<form (ngSubmit)="onSubmit()">
   <div>
     INITIAL INVESTMENT : <input type="number" id="initialInvestment" name="initialInvestment" [(ngModel)]="enteredInitialInvestment" />
     ANNUAL INVESTMENT : <input type="number" id="annualInvestment" name="annualInvestment" [(ngModel)]="enteredAnnualInvestment" />
@@ -8,5 +7,4 @@
     DURATION : <input type="number" id="duration" name="duration" [(ngModel)]="enteredDuration">
   </div>
   <br/>
-  <button type="submit">CALCULATE</button>
-</form>
+  <button (click)="onSubmit()">CALCULATE</button>

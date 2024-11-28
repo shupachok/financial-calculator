@@ -9,12 +9,15 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>1</td>
-      <td>$1,000</td>
-      <td>$10</td>
-      <td>$10</td>
-      <td>$1,010</td>
-    </tr>
+    @for (item of data; track item.year) {
+      <tr>
+        <td>{{item.year}}</td>
+        <td>${{item.investmentValue}}</td>
+        <td>${{item.interest}}</td>
+        <td>${{item.totalInterest}}</td>
+        <td>${{item.investmentCapital}}</td>
+      </tr>
+    }
+
   </tbody>
 </table>

@@ -21,10 +21,10 @@ export class UserInputService {
 
       investmentResults.push({
         year:i,
-        investmentValue:investmentValue.toFixed(2),
-        interest:interest.toFixed(2),
-        totalInterest:totalInterest.toFixed(2),
-        investmentCapital:investmentCapital.toFixed(2)
+        investmentValue:investmentValue.toLocaleString('en-US', {maximumFractionDigits:2}),
+        interest:interest.toLocaleString('en-US', {maximumFractionDigits:2}),
+        totalInterest:totalInterest.toLocaleString('en-US', {maximumFractionDigits:2}),
+        investmentCapital:investmentCapital.toLocaleString('en-US', {maximumFractionDigits:2})
       });
 
       investmentCapital+=enteredAnnualInvestment;
