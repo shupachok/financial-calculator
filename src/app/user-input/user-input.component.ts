@@ -15,7 +15,8 @@ import {InvestmentResult} from '../investment-results/investment-result.model';
 })
 export class UserInputComponent {
 
-  @Output() submit = new EventEmitter<InvestmentResult[]>();
+  @Output() calculate = new EventEmitter<InvestmentResult[]>();
+
   // submit = output<InvestmentResult[]>()
   enteredInitialInvestment:number=0.00;
   enteredAnnualInvestment:number=0.00;
@@ -25,11 +26,13 @@ export class UserInputComponent {
   private userInputService = inject(UserInputService);
 
   onSubmit() {
-    this.submit.emit(
-      this.userInputService.getInvestmentResult(
-        this.enteredInitialInvestment,
-        this.enteredAnnualInvestment,
-        this.enteredExpectedReturn,
-        this.enteredDuration));
+    console.log('SUBMIT!');
+    this.calculate.emit(
+      this.userInputService.getInvestmentResult({
+          enteredInitialInvestment:this.enteredInitialInvestment,
+          enteredExpectedReturn:this.enteredExpectedReturn,
+          enteredAnnualInvestment:this.enteredAnnualInvestment,
+          enteredDuration:this.enteredDuration
+        }));
   }
 }

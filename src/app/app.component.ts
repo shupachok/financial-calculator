@@ -15,9 +15,10 @@ export class AppComponent {
   title = 'financial-calculator';
   returnOfInvestment:InvestmentResult[] = [];
 
-  onSubmitData(results: InvestmentResult[]) {
-    console.log("####onSubmitData####")
+  onCalculate(results: InvestmentResult[]) {
+    console.log("####onCalculate####")
     console.log(results);
     this.returnOfInvestment=results;
   }
+
 }

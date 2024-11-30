@@ -1,6 +1,6 @@
 <main>
   <app-header/>
-  <app-user-input (submit)="onSubmitData($event)" />
+  <app-user-input (calculate)="onCalculate($event)" />
   <br/>
   @if(returnOfInvestment.length > 0) {
     <app-investment-results [data]="returnOfInvestment"/>

@@ -8,8 +8,12 @@ export class UserInputService {
 
   constructor() {}
 
-  public getInvestmentResult(enteredInitialInvestment:number,enteredAnnualInvestment:number,
-                             enteredExpectedReturn:number, enteredDuration:number): InvestmentResult[]{
+  public getInvestmentResult(data:{
+                              enteredInitialInvestment:number,
+                              enteredAnnualInvestment:number,
+                              enteredExpectedReturn:number,
+                              enteredDuration:number}): InvestmentResult[]{
+    const {enteredInitialInvestment,enteredAnnualInvestment,enteredExpectedReturn,enteredDuration} = data;
     let investmentResults: InvestmentResult[] = [];
     let investmentCapital:number = enteredInitialInvestment;
     let totalInterest:number = 0;
