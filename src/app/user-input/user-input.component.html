@@ -1,11 +1,11 @@
 <form [formGroup]="userInputForm" (ngSubmit)="onSubmit()">
   <div>
-    INITIAL INVESTMENT : <input type="text" id="initialInvestment" formControlName="initialInvestment"/>
-    ANNUAL INVESTMENT : <input type="number" id="annualInvestment" formControlName="annualInvestment"/>
+    INITIAL INVESTMENT : <input type="text" formControlName="initialInvestment"/>
+    ANNUAL INVESTMENT : <input type="number" formControlName="annualInvestment"/>
   </div>
   <div>
-    EXPECTED RETURN : <input type="number" id="expectedReturn" formControlName="expectedReturn"/>
-    DURATION : <input type="number" id="duration" formControlName="duration"/>
+    EXPECTED RETURN : <input type="number" formControlName="expectedReturn"/>
+    DURATION : <input type="number" formControlName="duration"/>
   </div>
   <br/>
   <button type="submit" [disabled]="!userInputForm.valid">CALCULATE</button>

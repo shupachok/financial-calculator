@@ -37,10 +37,10 @@ export class UserInputComponent {
     let formInputValue = this.userInputForm.value;
     this.calculate.emit(
       this.userInputService.getInvestmentResult({
-          enteredInitialInvestment: Number(formInputValue.initialInvestment),
-          enteredExpectedReturn: Number(formInputValue.expectedReturn),
-          enteredAnnualInvestment:Number(formInputValue.annualInvestment),
-          enteredDuration: Number(formInputValue.duration)
+          initialInvestment: Number(formInputValue.initialInvestment),
+          expectedReturn: Number(formInputValue.expectedReturn),
+          annualInvestment:Number(formInputValue.annualInvestment),
+          duration: Number(formInputValue.duration)
         }));
   }
 }
