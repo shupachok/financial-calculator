@@ -1,14 +1,10 @@
-import { Component } from '@angular/core';
-import {UserInputComponent} from './user-input/user-input.component';
-import {HeaderComponent} from './header/header.component';
-import {InvestmentResultsComponent} from './investment-results/investment-results.component';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  imports: [UserInputComponent, HeaderComponent, InvestmentResultsComponent],
   templateUrl: './app.component.html',
-  standalone: true,
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  standalone: false
 })
 export class AppComponent {
 }

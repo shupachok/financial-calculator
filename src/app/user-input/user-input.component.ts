@@ -1,25 +1,20 @@
 import {Component} from '@angular/core';
-import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserInputService} from './user-input.service';
 
 @Component({
   selector: 'app-user-input',
-  imports: [
-    FormsModule,
-    ReactiveFormsModule
-  ],
-
   templateUrl: './user-input.component.html',
-  standalone: true,
-  styleUrl: './user-input.component.css'
+  styleUrl: './user-input.component.css',
+  standalone: false
 })
 export class UserInputComponent {
 
   userInputForm = new FormGroup({
-    initialInvestment: new FormControl('', [Validators.required,Validators.min(0)]),
-    annualInvestment: new FormControl('', [Validators.required,Validators.min(0)]),
-    expectedReturn: new FormControl('', [Validators.required,Validators.min(0)]),
-    duration: new FormControl('', [Validators.required,Validators.min(0)])
+    initialInvestment: new FormControl('', [Validators.required, Validators.min(0)]),
+    annualInvestment: new FormControl('', [Validators.required, Validators.min(0)]),
+    expectedReturn: new FormControl('', [Validators.required, Validators.min(0)]),
+    duration: new FormControl('', [Validators.required, Validators.min(0)])
   })
 
   // submit = output<InvestmentResult[]>()
@@ -30,7 +25,8 @@ export class UserInputComponent {
 
   // private userInputService = inject(UserInputService);
 
-  constructor(private userInputService: UserInputService) {}
+  constructor(private userInputService: UserInputService) {
+  }
 
   onSubmit() {
     let formInputValue = this.userInputForm.value;

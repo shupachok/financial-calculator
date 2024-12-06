@@ -4,17 +4,16 @@ import {UserInputService} from '../user-input/user-input.service';
 
 @Component({
   selector: 'app-investment-results',
-  imports: [],
-  standalone: true,
   templateUrl: './investment-results.component.html',
-  styleUrl: './investment-results.component.css'
+  styleUrl: './investment-results.component.css',
+  standalone: false
 })
 export class InvestmentResultsComponent {
 
-  constructor(private userInputService:UserInputService) {
+  constructor(private userInputService: UserInputService) {
   }
 
-  getResults(): InvestmentResult[]{
+  getResults(): InvestmentResult[] {
     return this.userInputService.investmentResults;
   }
 }
