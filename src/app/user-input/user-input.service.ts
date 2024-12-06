@@ -8,19 +8,22 @@ import {InvestmentInput} from './user-input.model';
 export class UserInputService {
 
   constructor() {}
+  investmentResults: InvestmentResult[] = [];
 
-  public getInvestmentResult(data:InvestmentInput): InvestmentResult[]{
+  public calculate(data:InvestmentInput){
     const {initialInvestment,annualInvestment,expectedReturn,duration} = data;
-    let investmentResults: InvestmentResult[] = [];
+
     let investmentCapital:number = initialInvestment;
     let totalInterest:number = 0;
+
+    this.investmentResults = [];
 
     for(let i:number=1; i<=duration; i++){
       let interest:number = (investmentCapital + totalInterest)*expectedReturn/100;
       totalInterest += interest;
       let investmentValue:number = investmentCapital + totalInterest;
 
-      investmentResults.push({
+      this.investmentResults.push({
         year:i,
         investmentValue:investmentValue.toLocaleString('en-US', {maximumFractionDigits:2}),
         interest:interest.toLocaleString('en-US', {maximumFractionDigits:2}),
@@ -31,9 +34,5 @@ export class UserInputService {
       investmentCapital+=annualInvestment;
     }
 
-    console.log("###investmentResults####");
-    console.log(investmentResults);
-
-    return investmentResults;
   }
 }

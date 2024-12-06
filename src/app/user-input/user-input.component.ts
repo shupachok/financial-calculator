@@ -1,7 +1,6 @@
-import {Component, EventEmitter, inject, Output} from '@angular/core';
+import {Component} from '@angular/core';
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {UserInputService} from './user-input.service';
-import {InvestmentResult} from '../investment-results/investment-result.model';
 
 @Component({
   selector: 'app-user-input',
@@ -15,7 +14,7 @@ import {InvestmentResult} from '../investment-results/investment-result.model';
   styleUrl: './user-input.component.css'
 })
 export class UserInputComponent {
-  @Output() calculate = new EventEmitter<InvestmentResult[]>();
+
   userInputForm = new FormGroup({
     initialInvestment: new FormControl('', [Validators.required,Validators.min(0)]),
     annualInvestment: new FormControl('', [Validators.required,Validators.min(0)]),
@@ -29,18 +28,18 @@ export class UserInputComponent {
   // enteredExpectedReturn:number=0.00;
   // enteredDuration:number=0;
 
-  private userInputService = inject(UserInputService);
+  // private userInputService = inject(UserInputService);
+
+  constructor(private userInputService: UserInputService) {}
 
   onSubmit() {
-    console.log('SUBMIT!');
-
     let formInputValue = this.userInputForm.value;
-    this.calculate.emit(
-      this.userInputService.getInvestmentResult({
-          initialInvestment: Number(formInputValue.initialInvestment),
-          expectedReturn: Number(formInputValue.expectedReturn),
-          annualInvestment:Number(formInputValue.annualInvestment),
-          duration: Number(formInputValue.duration)
-        }));
+
+    this.userInputService.calculate({
+      initialInvestment: Number(formInputValue.initialInvestment),
+      expectedReturn: Number(formInputValue.expectedReturn),
+      annualInvestment: Number(formInputValue.annualInvestment),
+      duration: Number(formInputValue.duration)
+    });
   }
 }
